@@ -150,5 +150,35 @@
     </main>
 
     <!-- JS Code inside the app handles audio synthesis, localStorage data binding, and rendering -->
+    <!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Halloween Sprint Retro</title>
+</head>
+<body>
+
+  <script>
+    function sendToGoogleSheet(formData) {
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(() => {
+        console.log("บันทึกผลลง Google Sheet เรียบร้อยแล้ว!");
+      })
+      .catch(error => {
+        console.error("เกิดข้อผิดพลาดในการส่งข้อมูล:", error);
+      });
+    }
+  </script>
+</body>
+</html>
 </body>
 </html>
